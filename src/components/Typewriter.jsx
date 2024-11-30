@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Typewriter = ({ text, typingSpeed = 100 }) => {
+const Typewriter = ({ text, typingSpeed = 100, color = "bg-white", is_cv = false}) => {
   const [displayedText, setDisplayedText] = useState("");
   const [cursorVisible, setCursorVisible] = useState(true);
   const [index, setIndex] = useState(0);
@@ -25,8 +25,9 @@ const Typewriter = ({ text, typingSpeed = 100 }) => {
   }, []);
 
   return (
-    <div className="bg-white w-min shadow-md rounded-md px-4">
-      <div style={{ fontFamily: "monospace", whiteSpace: "pre" }}>
+    
+    <div className={`${is_cv && "color-green-200"} ${color} shadow-sm rounded-md px-4 text-lg whitespace-pre-wrap `}>
+      <div style={{ fontFamily: "monospace"}}>
         {displayedText}
         {cursorVisible ? "_" : " "}
       </div>

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-const PdfUploadBar = () => {
-  const [fileName, setFileName] = useState(null);
+
+const PdfUploadBar = (fileName, setter) => {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file && file.type === "application/pdf") {
-      setFileName(file.name);
+      setter(file.name);
     } else {
       alert("Please upload a valid PDF file.");
       event.target.value = null; // Reset the input value
