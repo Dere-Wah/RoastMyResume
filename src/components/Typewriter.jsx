@@ -7,8 +7,9 @@ const Typewriter = ({ text, typingSpeed = 100 }) => {
   useEffect(() => {
     let index = 0;
     const intervalId = setInterval(() => {
-      if (index < text.length) {
+      if (index < text.length-1) {
         setDisplayedText((prev) => prev + text[index]);
+        console.log(text[index])
         index++;
       } else {
         clearInterval(intervalId);
