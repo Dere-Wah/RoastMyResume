@@ -35,7 +35,7 @@ class TypewriterList extends Component {
     const { displayedElements } = this.state;
 
     return (
-      <div className="flex flex-col items-center h-full text-black w-full gap-1">
+      <div className="flex flex-col items-center text-black w-full gap-1">
         {displayedElements.map((text, idx) => (
           <Typewriter key={idx} text={text} client:load />
         ))}
