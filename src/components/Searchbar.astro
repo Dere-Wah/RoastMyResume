@@ -1,0 +1,20 @@
+---
+interface Props {
+	text: string;
+}
+
+const { text} = Astro.props;
+---
+
+<div class="flex w-full bg-transparent backdrop-blur-sm z-50">
+    <div class="container mx-auto px-4 py-4 flex justify-center items-center">
+      
+      <!-- Link di navigazione -->
+      <div class="flex space-x-6 text-white">
+        <a href="#home" class="font-mono hover:text-gray-300 transition">Home</a>
+        <a href="#about" class="font-mono hover:text-gray-300 transition">About</a>
+        <a href="#services" class=" font-mono hover:text-gray-300 transition">Services</a>
+        <a href="#contact" class=" font-mono hover:text-gray-300 transition">Contact</a>
+      </div>
+    </div>
+</div>
