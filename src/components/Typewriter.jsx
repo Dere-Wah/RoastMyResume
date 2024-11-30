@@ -3,21 +3,18 @@ import React, { useState, useEffect } from "react";
 const Typewriter = ({ text, typingSpeed = 100 }) => {
   const [displayedText, setDisplayedText] = useState("");
   const [cursorVisible, setCursorVisible] = useState(true);
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    let index = 0;
-    const intervalId = setInterval(() => {
-      if (index < text.length-1) {
+    if (index < text.length) {
+      const typingInterval = setInterval(() => {
         setDisplayedText((prev) => prev + text[index]);
-        console.log(text[index])
-        index++;
-      } else {
-        clearInterval(intervalId);
-      }
-    }, typingSpeed);
+        setIndex((prevIndex) => prevIndex + 1);
+      }, typingSpeed);
 
-    return () => clearInterval(intervalId);
-  }, [text, typingSpeed]);
+      return () => clearInterval(typingInterval);
+    }
+  }, [index, text, typingSpeed]);
 
   useEffect(() => {
     const cursorBlinkId = setInterval(() => {
@@ -28,9 +25,11 @@ const Typewriter = ({ text, typingSpeed = 100 }) => {
   }, []);
 
   return (
-    <div className="bg-white rounded-md shadow-md " style={{ fontFamily: "monospace", whiteSpace: "pre" }}>
-      {displayedText}
-      {cursorVisible ? "_" : " "}
+    <div className="bg-white w-min shadow-md rounded-md px-4">
+      <div style={{ fontFamily: "monospace", whiteSpace: "pre" }}>
+        {displayedText}
+        {cursorVisible ? "_" : " "}
+      </div>
     </div>
   );
 };

@@ -1,15 +1,11 @@
 ---
-import Typewriter from "./Typewriter";
+import TypewriterList from "./TypewriterList";
+
+
 
 ---
 
 
-<div class="flex flex-col justify-center h-full w-full text-center text-black">
-	<Typewriter text="  Hello friend" client:load />
-
-	<Typewriter text="  Hello friend" client:load />
-
-	<Typewriter text="  Hello friend" client:load />
-
-	<Typewriter text="  Hello friend" client:load />
+<div class="flex flex-col items-center h-full text-black w-full gap-1">
+	<TypewriterList strings={["Your CV sucks ass.", "Why don't you find a job. Oh wait, that's why you're here.", "Touch some grass."]} interval={5000} client:load />
 </div>
