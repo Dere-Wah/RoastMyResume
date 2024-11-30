@@ -28,7 +28,7 @@ const Typewriter = ({ text, typingSpeed = 100 }) => {
   }, []);
 
   return (
-    <div style={{ fontFamily: "monospace", whiteSpace: "pre" }}>
+    <div className="bg-white rounded-md shadow-md " style={{ fontFamily: "monospace", whiteSpace: "pre" }}>
       {displayedText}
       {cursorVisible ? "_" : " "}
     </div>
