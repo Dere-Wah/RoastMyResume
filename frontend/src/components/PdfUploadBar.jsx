@@ -5,12 +5,8 @@ import Typewriter from "./Typewriter";
 
 const PdfUploadBar = ({setText}) => {
 
-  const [visible, setVisible] = useState(false);
   const [valid, setValid] = useState(null);
 
-  useEffect(() => {
-    setVisible(true);
-  }, [])
 
   const extractTextFromPdf = async (file) => {
     pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js`;
@@ -51,14 +47,15 @@ const PdfUploadBar = ({setText}) => {
   };
 
   const handleBarClick = () => {
-    document.getElementById("pdfInput").click();
+    if (valid != true){
+      document.getElementById("pdfInput").click();
+    }
   };
 
   return (
     <div className="flex flex-col">
       <div onClick={handleBarClick}
-      className="text-2xl font-mono mt-8 bg-black text-white rounded-md w-fit px-4 shadow-md hover:cursor-pointer hover:shadow-sm transition-all duration-1000"
-      style={{opacity: `${visible && "100%" || !visible && "0%"}`}}>
+      className="text-2xl font-mono bg-black text-white rounded-md w-fit px-4 shadow-md hover:cursor-pointer hover:shadow-sm transition-all duration-1000">
         Upload Your CV
       </div>
       <input

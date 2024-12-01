@@ -37,11 +37,14 @@ const Onboarding = ({setText}) => {
                 </div>
             }
 
-            {progress >= 3 &&
-                <PdfUploadBar setText={(arg) => {
-                    setText(arg);
-                    setProgress(4);
-                }}/>
+            {progress >= 0 &&
+                <div className="transition-all duration-1000 my-4"
+                style={{opacity: `${progress == 3 && "100%" || progress != 3 && "0%"}`, transform: `scale(1, ${progress == 4 && "0" || progress != 4 && "1"})`}}>
+                    <PdfUploadBar setText={(arg) => {
+                        setText(arg);
+                        setProgress(4);
+                    }}/>
+                </div>
             }
 
 
