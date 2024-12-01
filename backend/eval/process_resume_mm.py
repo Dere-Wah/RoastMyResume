@@ -1,5 +1,5 @@
 from openai import OpenAI
-import agent.prefrontal_cortex as agent_think
+import eval.prefrontal_cortex as agent_think
 from ..models.data_models import IsValidResumeText, ResumeChunk, ResumeChunkAnalysis, ResumeResponse
 
 from typing import List

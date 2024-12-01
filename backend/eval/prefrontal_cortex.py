@@ -1,5 +1,7 @@
+from typing import List
+
 from openai import OpenAI
-from ...models.data_models import IsValidResumeText, ResumeChunk, ResumeResponse
+from models.data_models import IsValidResumeText, ResumeChunks, ResumeResponse
 
 
 def validate_resume(client: OpenAI, resume_text: str) -> IsValidResumeText:
@@ -30,7 +32,7 @@ def validate_resume(client: OpenAI, resume_text: str) -> IsValidResumeText:
     return result
 
 
-def obtain_chunk_from_text(client: OpenAI, chunk_text: str) -> ResumeChunk:
+def obtain_chunk_from_text(client: OpenAI, chunk_text: str) -> ResumeChunks:
     """given resume chunk analyze it and return a chunk in the correct format"""
     
     completion = client.beta.chat.completions.parse(
@@ -49,40 +51,24 @@ def obtain_chunk_from_text(client: OpenAI, chunk_text: str) -> ResumeChunk:
                 "content": f"Categorize and summarize the following resume chunk:\n\n{chunk_text}",
             },
         ],
-        response_format=ResumeChunk,
+        response_format=ResumeChunks,
     )
 
     result = completion.choices[0].message.parsed
     return result
-    
 
 
-def roast_chunk(client: OpenAI, chunk: ResumeChunk) -> ResumeRoast:
-    """given resume chunk analyze it and return roasting about that specific chunk"""
-    
+def roast_resume(client:OpenAI, resume_text: str) -> ResumeChunks:
     completion = client.beta.chat.completions.parse(
         model="gpt-4o-2024-08-06",
         messages=[
-            {
-                "role": "system",
-                "content": (
-                    "You are a brutally honest resume critic. Your job is to analyze resume chunks "
-                    "and provide: 1) a roasting critique. Be merciless, sarcastic, and focus on pointing out "
-                    "every flaw, mistake, and area that needs improvement. Make the critique engaging and witty."
-                    "2) a constructive suggestion, written with a helpful tone, explaining how the user "
-                    "can effectively improve this section of the resume."
-                ),
-            },
-            {
-                "role": "user",
-                "content": (
-                    f"Roast this CV chunk. Category: {chunk.category}. Summary: {chunk.summary}."
-                    "Be brutally honest and highlight why this part is poorly written "
-                    "or not effective. Include specific suggestions for improvement."
-                ),
-            },
+            {"role": "system", "content": "You need to roast a CV. You will receive a CV split in chunks." +
+                                          "You will, for each chunk, respond with a roast. Be brutal and honest." +
+                                          "Point out every flaw, mistake, and area that needs improvement. "
+                                          "Insult the person for making such a bad CV."},
+            {"role": "user", "content": "Here is my CV: \n" + resume_text},
         ],
-        response_format=ResumeRoast,
+        response_format=ResumeChunks,
     )
 
     result = completion.choices[0].message.parsed

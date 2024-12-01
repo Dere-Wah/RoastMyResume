@@ -19,8 +19,12 @@ class IsValidResumeText(BaseModel):
     invalid_roast: str
 
 
+class ResumeChunks(BaseModel):
+    chunks: List[ResumeChunk]
+
+
 class ResumeResponse(BaseModel):
     valid: bool
     invalid_roast: str
-    result: List[ResumeChunk]
+    result: ResumeChunks
 

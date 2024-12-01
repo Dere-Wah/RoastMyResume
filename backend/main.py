@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from models.data_models import ResumeRequest, ResumeResponse
-
+from eval.process_resume import evaluate_resume
 app = FastAPI()
 
 
@@ -12,10 +12,8 @@ async def process_resume(data: ResumeRequest):
     if not resume_text.strip():
         raise HTTPException(status_code=400, detail="Resume text cannot be empty")
 
+    result = evaluate_resume(resume_text)
+
+
     # Example response
-    return ResumeResponse(
-        status="success",
-        message="Resume processed successfully",
-        summary="Your summary here",  # Replace with actual logic
-        recommendations=["Improvement A", "Improvement B"],  # Replace with actual logic
-    )
+    return result
