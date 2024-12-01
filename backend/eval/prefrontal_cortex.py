@@ -1,5 +1,5 @@
 from openai import OpenAI
-from ...models.data_models import IsValidResumeText, ResumeChunk, ResumeRoast, ResumeResponse
+from ...models.data_models import IsValidResumeText, ResumeChunk, ResumeResponse
 
 
 def validate_resume(client: OpenAI, resume_text: str) -> IsValidResumeText:
