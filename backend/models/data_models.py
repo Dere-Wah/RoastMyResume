@@ -8,10 +8,10 @@ class ResumeRequest(BaseModel):
 
 class ResumeChunk(BaseModel):
     index: int
-    category: str
     summary: str
     roast: str
     suggestion: str
+    short_impactful_ironic_insult: str
 
 
 class IsValidResumeText(BaseModel):

@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import TypewriterList from "./TypewriterList.jsx";
-import PdfUploadBar from "./PdfUploadBar.jsx";
-import Button from "./Button.jsx"
-import TextSwitcher from "./TextSwitcher.jsx";
+
 import CVRoast from "../classes/CVRoast.jsx";
-import Typewriter from "./Typewriter.jsx";
 import Onboarding from "./Onboarding.jsx";
+import DisplayResume from "./DisplayResume.jsx";
 
 const NewApp = () => {
 
@@ -15,7 +12,7 @@ const NewApp = () => {
 
 
     const onPdfUploaded = async (text) => {
-        result = await roastApi.evaluateCV(text);
+        const result = await roastApi.evaluateCV(text);
         setResume(result);
     }
 

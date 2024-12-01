@@ -12,9 +12,9 @@ const Onboarding = ({setText}) => {
 
     useEffect(() => {
         // Display the title after 1 second
-        const timeout1 = setTimeout(() => setProgress(1), 1500);
-        const timeout2 = setTimeout(() => setProgress(2), 7000);
-        const timeout3 = setTimeout(() => setProgress(3), 10000);
+        const timeout1 = setTimeout(() => setProgress(1), 0.1500);
+        const timeout2 = setTimeout(() => setProgress(2), 0.7000);
+        const timeout3 = setTimeout(() => setProgress(3), 0.10000);
     
         // Cleanup timeouts on component unmount
         return () => {
