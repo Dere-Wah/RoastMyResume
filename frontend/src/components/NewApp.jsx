@@ -25,6 +25,14 @@ const NewApp = () => {
         )
     }
 
+    if (resume){
+        return(
+            <DisplayResume resume={resume} />
+        )
+    }
+
+
+
     
 }
 
