@@ -1,24 +1,24 @@
 # build output
-dist/
+frontend/dist/
 
 # generated types
-.astro/
+frontend/.astro/
 
 # dependencies
-node_modules/
+frontend/node_modules/
 
 # logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
 
 # environment variables
-.env
-.env.production
+frontend/.env
+frontend/.env.production
 
 # macOS-specific files
-.DS_Store
+frontend/.DS_Store
 
 # jetbrains setting folder
-.idea/
+frontend/.idea/
