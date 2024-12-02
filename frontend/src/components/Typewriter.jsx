@@ -31,7 +31,7 @@ const Typewriter = ({ text, typingSpeed = 100, color = "bg-white", is_cv = false
   }, []);
 
   return (
-    <div className={`${is_cv && "color-green-200"} ${background && color} ${background && "shadow-sm rounded-md"} whitespace-pre-wrap ${padding && "px-4"}`}>
+    <div className={`${is_cv && "color-green-200"} ${background && color} ${background && "shadow-sm rounded-md"} whitespace-pre-wrap ${padding && "px-4"} overflow-hidden`}>
       <div className="flex flex-row" style={{ fontFamily: "monospace"}}>
         <ReactMarkdown>{displayedText + (finished && "" || (!finished && cursorVisible) ? "_" : "  ")}</ReactMarkdown>
       </div>

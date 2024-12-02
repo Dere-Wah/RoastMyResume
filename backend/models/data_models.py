@@ -28,3 +28,4 @@ class ResumeResponse(BaseModel):
     invalid_roast: str
     result: ResumeChunks
 
+

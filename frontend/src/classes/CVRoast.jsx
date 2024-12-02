@@ -1,78 +1,89 @@
-const backend = "https://backend.derewah.dev"
-
+//const backend = "https://backend.derewah.dev"
+const backend = "http://127.0.0.1:8000"
 
 const test_roast = {
-  "valid": true,
-  "invalid_roast": "nope",
-  "result": [
-    {
-      "index": 1,
-      "category": "profile",
-      "summary": "Davide Locatelli is a Computer Engineering student at Politecnico di Milano, with a background from Liceo Scientifico Lorenzo Mascheroni, listing a basic contact email and a personal portfolio website.",
-      "roast": "Putting an academic institution on your resume doesn’t make you a genius; it just means you haven't dropped out yet.",
-      "suggestion": "Consider including a brief personal summary or objective to give a sense of your career aspirations.",
-      "short_impactful_ironic_insult": "Einstein called, he says 'Keep trying.'"
-    },
-    {
-      "index": 2,
-      "category": "education",
-      "summary": "Education section lists Politecnico di Milano (ongoing) and a Liceo Scientifico diploma.",
-      "roast": "Congratulations on your two entries, one of which is just 'high school but fancier.'",
-      "suggestion": "Highlight any notable academic achievements or coursework relevant to your projects.",
-      "short_impactful_ironic_insult": "Ah yes, 'the basics.'"
-    },
-    {
-      "index": 3,
-      "category": "experience",
-      "summary": "Davide worked on AI-based projects including an AI-generated Spongebob script simulator, Reddit-to-YouTube shorts generator, and React-based web games.",
-      "roast": "AI SpongeBob? Bold of you to think AI wants to live under the sea, let alone near you.",
-      "suggestion": "Quantify the impact of these projects (e.g., user base, views, community size).",
-      "short_impactful_ironic_insult": "Who lives in a pineapple and doesn't care? This AI."
-    },
-    {
-      "index": 4,
-      "category": "freelance work",
-      "summary": "Davide has freelanced as a Java developer on Fiverr, focusing on Minecraft plugins and scripts with over 50 5-star reviews.",
-      "roast": "A true digital blacksmith, forging code in the fires of... Minecraft? Is it Java or just blocky dreams?",
-      "suggestion": "Mention specific client problems you solved or unique features you implemented.",
-      "short_impactful_ironic_insult": "Breaking blocks and breaking hearts, eh?"
-    },
-    {
-      "index": 5,
-      "category": "skills",
-      "summary": "Lists technical skills like Python, Java, and React, along with interests like AI integrations and game development.",
-      "roast": "You've got a tech stack as big as your ego, but where's the proof it holds up under pressure?",
-      "suggestion": "Add certifications or projects that substantiate your proficiency in these skills.",
-      "short_impactful_ironic_insult": "Skill lists are not infinity stones; calm down, Thanos."
-    },
-    {
-      "index": 6,
-      "category": "language and interests",
-      "summary": "Fluent in Italian and English; interested in learning methodologies, AI, and open-source development.",
-      "roast": "Learning to learn? That's just a fancy way of saying you procrastinate by watching YouTube tutorials.",
-      "suggestion": "Tie these interests back to your professional work or specific examples of how you've pursued them.",
-      "short_impactful_ironic_insult": "Google Translate approves."
-    }
-  ]
+	"valid": true,
+	"invalid_roast": "",
+	"result": {
+		"chunks": [
+			{
+				"index": 0,
+				"summary": "Header: Name, Email, Website",
+				"roast": "Wow, Davide, what an impressive use of clutter! You've somehow managed to make your own name and contact info look like a spam email. I mean, who doesn't love reading URL links right next to an email address? Your presentation screams 'I can code but I can't format a CV.'",
+				"suggestion": "Separate your name and contact information clearly. Use bullet points or lines to distinguish between elements. Your name should be the focus, not your website URL.",
+				"typing_speed_milliseconds": 1200,
+				"short_impactful_ironic_insult": "Is this a CV or a phishing attempt?"
+			},
+			{
+				"index": 1,
+				"summary": "Education Section",
+				"roast": "Ah, education—the section where you showcase that you're not a complete ignoramus. But here you merely listed schools like you're checking off boxes on a grocery list. No details, no GPA, no notable courses, not even a sniff of a scholarship or honor. It's almost as if you're hiding how subpar you are!",
+				"suggestion": "Add more details about your achievements during your education. Mention GPA if it's decent, relevant coursework, honors, or positions of responsibility held.",
+				"typing_speed_milliseconds": 1300,
+				"short_impactful_ironic_insult": "Congrats, you attended schools. Riveting!"
+			},
+			{
+				"index": 2,
+				"summary": "Experience and Projects: AI Generated Spongebob",
+				"roast": "AI Generated Spongebob? Truly, the epitome of groundbreaking technological achievement! If creating transcriptions for a cartoon character is your magnum opus, then the world must be running out of problems to solve. Also, 'Managed community input' is just a fancy way to say you moderated comments, isn't it?",
+				"suggestion": "Clearly describe the impact or uniqueness of your project. Focus more on the technical challenges you overcame. Make it relevant to a prospective employer.",
+				"typing_speed_milliseconds": 1500,
+				"short_impactful_ironic_insult": "From laughing at Spongebob to being one—what a career trajectory!"
+			},
+			{
+				"index": 3,
+				"summary": "AI Generated YT Shorts from Reddit",
+				"roast": "Whoa, Davide, so you made YouTube Shorts from Reddit posts? Really pushing the boundaries of copying and pasting here, aren't we? Your innovation shines as brightly as a burnt-out bulb. And yeah, a Telegram Bot—groundbreaking!",
+				"suggestion": "Emphasize the innovative aspects and technical challenges of the project. Use quantitative results to demonstrate success, like user engagement or process efficiency improvements.",
+				"typing_speed_milliseconds": 1450,
+				"short_impactful_ironic_insult": "Did someone order a side of originality with that redundancy?"
+			},
+			{
+				"index": 4,
+				"summary": "Web Games in React + Python Backend",
+				"roast": "How compelling, you've made a social deduction game while missing the deduction on how to properly format a CV. You recreated games to teach yourself React because why not reinvent the wheel and make it square? Meanwhile, 'ranked #6/1500' is the participation trophy equivalent of the real world.",
+				"suggestion": "Highlight the complexity and problem-solving aspects of your projects rather than just listing them. Explain the learning outcomes and potential scalability.",
+				"typing_speed_milliseconds": 1600,
+				"short_impactful_ironic_insult": "Game over: you've lost at CV writing!"
+			},
+			{
+				"index": 5,
+				"summary": "Leadership & Activities: Fiverr Java Software Developer",
+				"roast": "Your grand title of 'Fiverr Java Software Developer' screams ambition. Actually, no, it quietly peeps gig economy desperation. Those '50+ 5-star reviews' sound like you might just have made more dummy accounts than sales. And let's not even start on the self-flattery of the 'Fiverr’s Choice award'.",
+				"suggestion": "Focus on how this experience has prepared you for larger, more professional roles. Highlight specific skills developed and successful projects.",
+				"typing_speed_milliseconds": 1250,
+				"short_impactful_ironic_insult": "Five-star developer or a zero-star careerist?"
+			},
+			{
+				"index": 6,
+				"summary": "Skills & Interests",
+				"roast": "Oh look, a garden-variety list of buzzwords you can find on any half-baked CV. You’re a polyglot in the languages of CSharp and Italian. Meanwhile, 'Learning to learn' as an interest—what does that even mean? Sounds more like you’re unsure of your own capabilities.",
+				"suggestion": "Include tangible outcomes or projects that demonstrate these skills. Remove buzzwords that don't add real value. Interests should ideally relate to your professional growth.",
+				"typing_speed_milliseconds": 1250,
+				"short_impactful_ironic_insult": "Can 'learning to learn' teach you to write a decent CV?"
+			}
+		]
+	}
 }
-
 
 class CVRoast {
 
 	async evaluateCV(text){
+        return test_roast;
+
         try{
-            return test_roast;
             const response = await fetch(`${backend}/rmr/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    resume: {text}
+                    resume: text
                 })
             });
 
             const data = await response.json();
+            console.log(data);
             return data;
         } catch (error){
             console.error("Error during evaluation: ", error);

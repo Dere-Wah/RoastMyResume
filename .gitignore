@@ -22,3 +22,5 @@ frontend/.DS_Store
 
 # jetbrains setting folder
 frontend/.idea/
+
+**/__pycache__/

@@ -1,8 +1,29 @@
 import React, { useState, useEffect } from "react";
 import Typewriter from './Typewriter';
 import PdfUploadBar from "./PdfUploadBar";
+import TextSwitcher from "./TextSwitcher";
 
 
+const loading = ["Analyzing your resume...", 
+    "Searching for excuses to hire you...", 
+    "Consulting with a psychic...", 
+    "Polishing the rejection stamp...", 
+    "Pretending to be impressed...", 
+    "Looking for hidden talents... still looking...", 
+    "Cross-referencing with the FBI watchlist...", 
+    "Scanning for buzzwords: synergy detected...", 
+    "Phoning your mom for clarification...", 
+    "Bribing HR to take a second look....", 
+    "Tallying the number of times you wrote 'team player'...", 
+    "Regretting we opened this file...", 
+    "Counting the number of typos...", 
+    "Judging your font choice harshly...", 
+    "Adding 'expert procrastinator' to skills section...", 
+    "Filing this under 'better luck next time'...", 
+    "Assessing damage to recruiter’s eyes...", 
+    "Translating your jargon into English...", 
+    "Checking if LinkedIn can save you...", 
+    "Reading between the lines... it's not good..."]
 
 const Onboarding = ({setText}) => {
 
@@ -49,7 +70,7 @@ const Onboarding = ({setText}) => {
 
 
             {progress >= 4 && 
-                <Typewriter text="Reading your Resume..." background={false}/>
+                <TextSwitcher texts={loading} interval={1500} typing_speed={150}/>
             }
         </div>
       )

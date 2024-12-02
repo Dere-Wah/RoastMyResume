@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import CVRoast from "../classes/CVRoast.jsx";
 import Onboarding from "./Onboarding.jsx";
 import DisplayResume from "./DisplayResume.jsx";
+import Typewriter from "./Typewriter.jsx";
 
 const NewApp = () => {
 
@@ -18,13 +19,20 @@ const NewApp = () => {
 
     if (resume == null){
         return(
-            <Onboarding setText={onPdfUploaded}/>
+            <div className="m-12">
+                <Onboarding setText={onPdfUploaded}/>
+            </div>
         )
     }
 
     if (resume){
         return(
-            <DisplayResume resume={resume} />
+            <div className="w-full h-full flex flex-col items-center gap-4">
+                <div className="text-clamp">
+                    <Typewriter text="RoastMyResume"/>
+                </div>
+                <DisplayResume resume={resume} />
+            </div>
         )
     }
 
