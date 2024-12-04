@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import Typewriter from "./Typewriter";
-
+import CustomButtom from "./CustomButton";
 
 const PdfUploadBar = ({setText}) => {
 
@@ -54,7 +54,7 @@ const PdfUploadBar = ({setText}) => {
 
   return (
     <div className="flex flex-col">
-      <CustomButtom execute={handleBarClick}>Upload your CV</CustomButtom>
+      <CustomButtom execute={handleBarClick} text={"Upload your CV"}></CustomButtom>
       <input
         type="file"
         id="pdfInput"

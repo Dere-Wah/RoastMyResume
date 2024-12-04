@@ -69,7 +69,7 @@ const test_roast = {
 class CVRoast {
 
 	async evaluateCV(text){
-        return test_roast;
+        //return test_roast;
 
         try{
             const response = await fetch(`${backend}/rmr/`, {

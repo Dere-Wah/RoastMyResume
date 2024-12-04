@@ -8,7 +8,7 @@ class ResumeRequest(BaseModel):
 
 class ResumeChunk(BaseModel):
     index: int
-    summary: str
+    a_quote_from_the_cv_section_the_roast_is_about: str
     roast: str
     suggestion: str
     short_impactful_ironic_insult: str
