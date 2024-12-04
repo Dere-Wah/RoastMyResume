@@ -54,10 +54,7 @@ const PdfUploadBar = ({setText}) => {
 
   return (
     <div className="flex flex-col">
-      <div onClick={handleBarClick}
-      className="text-2xl font-mono bg-black text-white rounded-md w-fit px-4 shadow-md hover:cursor-pointer hover:shadow-sm transition-all duration-1000">
-        Upload Your CV
-      </div>
+      <CustomButtom execute={handleBarClick}>Upload your CV</CustomButtom>
       <input
         type="file"
         id="pdfInput"

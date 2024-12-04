@@ -24,3 +24,5 @@ frontend/.DS_Store
 frontend/.idea/
 
 **/__pycache__/
+
+backend/openai.txt

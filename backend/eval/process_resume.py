@@ -4,7 +4,9 @@ from openai import OpenAI
 from models.data_models import ResumeChunks, ResumeResponse
 
 
-client = OpenAI(api_key=)
+with open("./openai.txt") as file:
+    key = file.read()
+    client = OpenAI(api_key=key)
 
 def evaluate_resume(resume_text) -> ResumeResponse:
     evaluated = validate_resume(client, resume_text)

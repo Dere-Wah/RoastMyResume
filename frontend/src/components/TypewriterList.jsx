@@ -1,5 +1,6 @@
-import React, { Component, createRef } from 'react';
+import React, { Component, createRef, useState } from 'react';
 import Typewriter from './Typewriter';
+import CustomButtom from './CustomButtom';
 
 class TypewriterList extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class TypewriterList extends Component {
     };
     this.timeoutIds = []; // To store timeouts for cleanup if necessary
     this.listEndRef = createRef(); // Reference for the last element
+    const [finished, setFinished] = useState(false);
   }
 
   componentDidMount() {
@@ -58,6 +60,11 @@ class TypewriterList extends Component {
         150
       ) + interval * 2;
     });
+    accumulatedDelay += 2000;
+    const timeout = setTimeout(() => {
+      this.setFinished(true);
+    }, accumulatedDelay);
+    this.timeoutIds.push(timeout);
   }
 
   render() {
@@ -68,7 +75,7 @@ class TypewriterList extends Component {
           <div
             key={idx}
             className={`max-w-[80%] ${
-              text.type === 'insult' ? 'text-4xl' : 'text-xl'
+              text.type === 'insult' ? 'text-4x' : 'text-xl'
             }`}
           >
             <Typewriter
@@ -82,6 +89,14 @@ class TypewriterList extends Component {
         ))}
         {/* Ref for scrolling */}
         <div ref={this.listEndRef} />
+        {finished && 
+          <div className='h-1/2 w-full'>
+            <CustomButtom execute={() => {console.log("whew")}}>
+              Test 123
+            </CustomButtom>
+
+          </div>
+        }
       </div>
     );
   }
