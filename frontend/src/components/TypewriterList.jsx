@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Typewriter from './Typewriter';
 import CustomButton from './CustomButton';
+import Suggestion from "./Suggestion";
 
 const TypewriterList = ({ resume, interval }) => {
   const [displayedElements, setDisplayedElements] = useState([]);
@@ -52,7 +53,8 @@ const TypewriterList = ({ resume, interval }) => {
         element.short_impactful_ironic_insult,
         'insult',
         150
-      ) + interval * 2;
+      ) + 100;
+      accumulatedDelay = enqueueElement(accumulatedDelay, element.suggestion, 'suggestion', 10) + interval * 2;
     });
 
     accumulatedDelay += 2000;
@@ -72,6 +74,10 @@ const TypewriterList = ({ resume, interval }) => {
             text.type === 'insult' ? 'text-4xl' : 'text-xl'
           }`}
         >
+          {text.type == "suggestion" &&
+          <Suggestion text={text.text} />
+          }
+          {text.type != "suggestion" && 
           <Typewriter
             text={text.text}
             color={text.type === 'summary' ? 'bg-green-200' : 'bg-white'}
@@ -79,10 +85,11 @@ const TypewriterList = ({ resume, interval }) => {
             padding={true}
             client:load
           />
+          }
         </div>
       ))}
       {/* Ref for scrolling */}
-      <div ref={listEndRef} />
+      <div ref={listEndRef} className="h-[20px]"/>
       {finished && (
         <div className="h-1/2 w-full">
           <CustomButton execute={() => console.log('whew')}>

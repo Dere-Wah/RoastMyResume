@@ -8,6 +8,21 @@ export default {
 			fontSize: {
 				clamp: "clamp(3rem, 5vw, 10rem)",
 			},
+			keyframes: {
+				fadeInUp: {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(20px) scale(1.25)',
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0) scale(1)',
+					},
+				},
+			},
+			animation: {
+				fadeInUp: 'fadeInUp 1s ease-out',
+			},
 		},
 	},
 	plugins: [plugin(function({ addUtilities }) {
