@@ -9,7 +9,6 @@ const Typewriter = ({ text, typingSpeed = 100, color = "bg-white", is_cv = false
 
   useEffect(() => {
     if (index == text.length){
-      console.log("finished writing: " + text);
       setFinished(true);
     }
     if (index < text.length) {

@@ -57,7 +57,7 @@ const TypewriterList = ({ resume, interval }) => {
       accumulatedDelay = enqueueElement(accumulatedDelay, element.suggestion, 'suggestion', 10) + interval * 2;
     });
 
-    accumulatedDelay = enqueueElement(accumulatedDelay, resume.final_short_overall_consideration, "roast", 60) + interval;
+    accumulatedDelay = enqueueElement(accumulatedDelay, resume.final_short_honest_overall_consideration, "roast", 60) + interval;
     accumulatedDelay = enqueueElement(accumulatedDelay, resume.one_big_company_that_could_hire_this_profile_and_reason, "insult", 60) + interval*2;
 
     accumulatedDelay += 2000;
@@ -69,38 +69,38 @@ const TypewriterList = ({ resume, interval }) => {
   };
 
   return (
-    <div className="flex flex-col items-center text-black w-full gap-4 py-4 h-80% overflow-auto">
-      {displayedElements.map((text, idx) => (
-        <div
-          key={idx}
-          className={`max-w-[80%] ${
-            text.type === 'insult' ? 'text-4xl' : 'text-xl'
-          }`}
-        >
-          {text.type == "suggestion" &&
-          <Suggestion text={text.text} />
-          }
-          {text.type != "suggestion" && 
-          <Typewriter
-            text={text.text}
-            color={text.type === 'summary' ? 'bg-green-200' : 'bg-white'}
-            typingSpeed={text.typingSpeed}
-            padding={true}
-            client:load
-          />
-          }
-        </div>
-      ))}
-      {/* Ref for scrolling */}
-      <div ref={listEndRef} className="h-[20px]"/>
-      {finished && (
-        <div className="h-1/2 w-full">
-          <CustomButton execute={() => console.log('whew')}>
-            Test 123
-          </CustomButton>
-        </div>
-      )}
-    </div>
+      <div className="flex flex-col text-black gap-4 py-4 h-80% overflow-auto ml-12">
+        {displayedElements.map((text, idx) => (
+          <div
+            key={idx}
+            className={`max-w-[80%] ${
+              text.type === 'insult' ? 'text-4xl' : 'text-xl'
+            }`}
+          >
+            {text.type == "suggestion" &&
+            <Suggestion text={text.text} />
+            }
+            {text.type != "suggestion" && 
+            <Typewriter
+              text={text.text}
+              color={text.type === 'summary' ? 'bg-green-200' : 'bg-white'}
+              typingSpeed={text.typingSpeed}
+              padding={true}
+              client:load
+            />
+            }
+          </div>
+        ))}
+        {/* Ref for scrolling */}
+        <div ref={listEndRef} className="h-[20px]"/>
+        {finished && (
+          <div className="h-1/2 w-full">
+            <CustomButton execute={() => console.log('whew')}>
+              Test 123
+            </CustomButton>
+          </div>
+        )}
+      </div>
   );
 };
 

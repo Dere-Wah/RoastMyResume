@@ -12,7 +12,7 @@ const DisplayResume = ({resume}) => {
         )
     }else{
         return(
-            <div className="w-full bg-slate-100 overflow-hidden overflow-x-clip overflow-y-scroll no-scrollbar mb-12 mx-24">
+            <div className="w-full  overflow-hidden overflow-x-clip overflow-y-scroll no-scrollbar mb-12 mx-24">
                 <TypewriterList resume={resume.result} interval={2500}/>
             </div>
         )
