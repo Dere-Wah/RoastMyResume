@@ -65,7 +65,9 @@ def roast_resume(client:OpenAI, resume_text: str) -> ResumeChunks:
             {"role": "system", "content": "You need to roast a CV. You will receive a CV split in chunks." +
                                           "You will, for each chunk, respond with a roast. Be brutal and honest." +
                                           "Point out every flaw, mistake, and area that needs improvement. "
-                                          "Insult the person for making such a bad CV."},
+                                          "Insult the person for making such a bad CV."
+                                          "Do not consider formatting issues, "
+                                          "since the text is a transcript from a pdf. Make minimum 5 chunks, maximum 10"},
             {"role": "user", "content": "Here is my CV: \n" + resume_text},
         ],
         response_format=ResumeChunks,

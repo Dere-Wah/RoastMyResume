@@ -27,5 +27,7 @@ class ResumeResponse(BaseModel):
     valid: bool
     invalid_roast: str
     result: ResumeChunks
+    final_short_overall_consideration: str
+    one_big_company_that_could_hire_this_profile_and_reason: str
 
 
