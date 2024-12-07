@@ -21,6 +21,8 @@ class IsValidResumeText(BaseModel):
 
 class ResumeChunks(BaseModel):
     chunks: List[ResumeChunk]
+    final_short_overall_consideration: str
+    one_big_company_that_could_hire_this_profile_and_reason: str
 
 
 class ResumeResponse(BaseModel):
