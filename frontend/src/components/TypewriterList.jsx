@@ -57,6 +57,9 @@ const TypewriterList = ({ resume, interval }) => {
       accumulatedDelay = enqueueElement(accumulatedDelay, element.suggestion, 'suggestion', 10) + interval * 2;
     });
 
+    accumulatedDelay = enqueueElement(accumulatedDelay, resume.final_short_overall_consideration, "roast", 60) + interval;
+    accumulatedDelay = enqueueElement(accumulatedDelay, resume.one_big_company_that_could_hire_this_profile_and_reason, "insult", 60) + interval*2;
+
     accumulatedDelay += 2000;
     const timeout = setTimeout(() => {
       setFinished(true);

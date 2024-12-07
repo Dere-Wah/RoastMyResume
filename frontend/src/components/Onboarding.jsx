@@ -53,7 +53,7 @@ const Onboarding = ({setText}) => {
             }
 
             {progress >= 2 &&
-                <div className="text-3xl">
+                <div className="text-2xl lg:text-4xl">
                     <Typewriter text="Let's find out." background={false}/>
                 </div>
             }
