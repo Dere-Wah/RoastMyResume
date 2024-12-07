@@ -1,5 +1,4 @@
-//const backend = "https://backend.derewah.dev"
-const backend = "http://127.0.0.1:8000"
+const backend = "https://backend.derewah.dev"
 
 const test_roast = {
 	"valid": true,
@@ -69,8 +68,6 @@ const test_roast = {
 class CVRoast {
 
 	async evaluateCV(text){
-        return test_roast;
-
         try{
             const response = await fetch(`${backend}/rmr/`, {
                 method: 'POST',
