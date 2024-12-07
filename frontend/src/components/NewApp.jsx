@@ -27,9 +27,9 @@ const NewApp = () => {
 
     if (resume){
         return(
-            <div className="w-full h-full flex flex-col items-center gap-4">
-                <a className="text-clamp" href=".">
-                    <Typewriter text="&#8592; RoastMyResume"/>
+            <div className="w-full h-full flex flex-col items-center gap-4 py-4">
+                <a className="text-4xl hover:shadow-xl transition-all duration-500 ease-in-out rounded-md p-4" href=".">
+                    <Typewriter text="&#8592; RoastMyResume" background={false}/>
                 </a>
                 <DisplayResume resume={resume} />
             </div>
