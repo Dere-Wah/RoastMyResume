@@ -19,9 +19,18 @@ export default {
 						transform: 'translateY(0)',
 					},
 				},
+				suggestion: {
+					"0%": {
+						transform: "scaleY(0)"
+					},
+					"100%":{
+						transform: "scaleY(1)"
+					}
+				}
 			},
 			animation: {
 				fadeInUp: 'fadeInUp 1s ease-out',
+				suggestion: "suggestion 100ms ease-out"
 			},
 		},
 	},

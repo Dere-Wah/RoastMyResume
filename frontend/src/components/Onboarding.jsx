@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Typewriter from './Typewriter';
 import PdfUploadBar from "./PdfUploadBar";
 import TextSwitcher from "./TextSwitcher";
-
+import Suggestion from "./Suggestion";
 
 const loading = ["Analyzing your resume...", 
     "Searching for excuses to hire you...", 
