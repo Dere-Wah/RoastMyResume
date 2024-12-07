@@ -28,9 +28,9 @@ const NewApp = () => {
     if (resume){
         return(
             <div className="w-full h-full flex flex-col items-center gap-4">
-                <div className="text-clamp">
-                    <Typewriter text="RoastMyResume"/>
-                </div>
+                <a className="text-clamp" href=".">
+                    <Typewriter text="&#8592; RoastMyResume"/>
+                </a>
                 <DisplayResume resume={resume} />
             </div>
         )

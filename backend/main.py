@@ -25,6 +25,9 @@ async def process_resume(data: ResumeRequest):
     if not resume_text.strip():
         raise HTTPException(status_code=400, detail="Resume text cannot be empty")
 
+    if len(resume_text) >= 5000:
+        raise HTTPException(status_code=400, detail="Resume text is too long")
+
     result = evaluate_resume(resume_text)
 
 

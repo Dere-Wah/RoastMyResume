@@ -6,7 +6,9 @@ import TypewriterList from "./TypewriterList";
 const DisplayResume = ({resume}) => {
     if(!resume.valid){
         return(
-            <Typewriter text={resume.invalid_roast} />
+            <div className="w-full h-full bg-slate-100 mb-12 px-12">
+                <Typewriter text={resume.invalid_roast} />
+            </div>
         )
     }else{
         return(

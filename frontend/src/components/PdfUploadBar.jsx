@@ -3,9 +3,12 @@ import * as pdfjsLib from "pdfjs-dist";
 import Typewriter from "./Typewriter";
 import CustomButtom from "./CustomButton";
 
+const FILE_LIMIT = 5000;
+
 const PdfUploadBar = ({setText}) => {
 
   const [valid, setValid] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("You should not be able to see this.")
 
 
   const extractTextFromPdf = async (file) => {
@@ -15,8 +18,14 @@ const PdfUploadBar = ({setText}) => {
 
     fileReader.onload = async (e) => {
       const typedArray = new Uint8Array(e.target.result);
-      const pdf = await pdfjsLib.getDocument(typedArray).promise;
-
+      let pdf = null;
+      try{
+        pdf = await pdfjsLib.getDocument(typedArray).promise;
+      }catch{
+        setValid(false);
+        setErrorMessage("This PDF is weird, I could not open it. Are you trying to kill me???");
+        return;
+      }
       let extractedText = "";
 
       // Loop through all the pages
@@ -28,7 +37,11 @@ const PdfUploadBar = ({setText}) => {
         const pageText = content.items.map((item) => item.str).join(" ");
         extractedText += `Page ${i}:\n${pageText}\n\n`;
       }
-      console.log(extractedText);
+      if(extractedText.length > FILE_LIMIT){
+        setValid(false);
+        setErrorMessage("Woahh, slow down there! How is your CV that long? Upload a shorter file.")
+        return;
+      }
       setText(extractedText); // Update the parent state with extracted text
     };
 
@@ -36,13 +49,23 @@ const PdfUploadBar = ({setText}) => {
   };
 
   const handleFileChange = (event) => {
+    setErrorMessage("")
     const file = event.target.files[0];
     if (file && file.type === "application/pdf") {
-        extractTextFromPdf(file);
-        setValid(true);
+        try{
+          extractTextFromPdf(file);
+          setValid(true);
+        }
+        catch{
+          setValid(false);
+          event.target.value = null;
+          setErrorMessage("This PDF is weird, I could not open it. Are you trying to kill me???")
+        }
+
     } else {
       setValid(false);
       event.target.value = null; // Reset the input value
+      setErrorMessage("You had 1 (ONE) task, to upload a .pdf file. And you failed it.")
     }
   };
 
@@ -63,7 +86,7 @@ const PdfUploadBar = ({setText}) => {
         onChange={handleFileChange}
       />
       {valid == false && 
-        <Typewriter text="This is not a valid file..." background={false} />
+        <Typewriter text={errorMessage} background={false} />
       }
     </div>
   );
